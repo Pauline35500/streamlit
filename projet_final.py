@@ -85,7 +85,7 @@ st.markdown('<h1 style="font-size: 36px;">IV - Etudes sur les besoins en mains d
 st.markdown('<h2 style="font-size: 24px;">a) Présentation des familles de métiers présent dans notre jeu de données puis zoom sur les métiers</h2>', unsafe_allow_html=True)
 
 color = st.select_slider(
-     'Choisies une couleure pour les prochains graphiques :',
+     'Choisissez une couleur pour les prochains graphiques :',
      options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
 
 df3 = df.groupby('libelle_famille_metier').count()
@@ -207,6 +207,27 @@ else:
     
     # plt.clf()
     st.pyplot(plt)
+
+
+## Détails par département, par région 
+
+st.markdown('<h2 style="font-size: 24px;">c) Zoom sur une région, un département qui vous intéresse </h2>', unsafe_allow_html=True)
+
+vertical_concat = pd.concat([df_dept, df_reg], axis=0)
+
+options5 = vertical_concat.index.tolist()
+options6 = st.selectbox("Sélectionnez le département ou la région qui vous intéresse", options5)
+st.write(f"You chose: {options6}")
+
+
+df_test = vertical_concat.loc[vertical_concat.index == options6]
+hard= df_test['percent_hard'].values
+season= df_test['percent_season'].values 
+
+
+st.markdown(f'<div style="text-align: center;"><span style="color:red; font-size: 24px;">Ce sont des données sur {options6}</span></div>', unsafe_allow_html=True)
+st.markdown(f'<div style="text-align: center;"><span style="color:red; font-size: 24px;">{hard}%   de recrutements difficil</span></div>', unsafe_allow_html=True)
+st.markdown(f'<div style="text-align: center;"><span style="color:red; font-size: 24px;">{season}% de recrutements saisonnier</span></div>', unsafe_allow_html=True)
 
 
 
