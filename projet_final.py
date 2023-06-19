@@ -26,7 +26,7 @@ st.sidebar.image(image1)
 st.sidebar.markdown(f'[LinkedIn]({link})')
 
 #Github
-image2 = 'git.jpg'
+image2 = 'image/git.jpg'
 link2 = 'https://github.com/Pauline35500'
 st.sidebar.image(image2)
 st.sidebar.markdown(f'[Github]({link2})')
@@ -35,7 +35,7 @@ st.sidebar.markdown(f'[Github]({link2})')
 st.markdown('<h1 style="font-size: 36px;">I - Introduction</h1>', unsafe_allow_html=True)
 st.write('Pour réaliser l étude ci-dessous nous avons tout d abord choisi le jeu de données sur les BMO (besoins en main d oeuvre) en France. Après avoir importé les données à l aide du lien stable disponible sur data.gouv. Nous avons nettoyé les données et créé des nouvelles colonnes comme la colonne percent_season ou percent_hard qui permettent de mieux visualiser le pourcentage de poste difficile à pourvoir ainsi que le pourcentage de recrutement saisonnier.')
 
-image = 'intro.jpg'
+image = 'image/intro.jpg'
 st.image(image)
 
 ## Présentation du jeu de données
@@ -238,7 +238,7 @@ from streamlit_folium import folium_static
 
 df2 = df_dept.copy()
 df2['code_departement'] = df2['departement']
-departements = gpd.read_file('departements.geojson')
+departements = gpd.read_file('data/departements.geojson')
 
 data = departements.to_crs(epsg=4326)
 m = folium.Map(location=[46.2276, 2.2137], zoom_start=5)
