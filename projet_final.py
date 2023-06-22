@@ -20,7 +20,7 @@ st.sidebar.title('Qui suis-je ?')
 text = st.sidebar.markdown('Je m appelle Pauline Savatte, je suis actuellement en première année de Msc Data Management à Paris School of Business en partenariat avec l EFREI et également en alternance à la Banque Populaire Grand Ouest. Ci-dessous le lien vers mes réseaux. ')
 
 #linkedin
-image1 = 'lin.png'
+image1 = 'image/lin.png'
 link = 'https://www.linkedin.com/in/pauline-savatte-7083aa199/'
 st.sidebar.image(image1)
 st.sidebar.markdown(f'[LinkedIn]({link})')
